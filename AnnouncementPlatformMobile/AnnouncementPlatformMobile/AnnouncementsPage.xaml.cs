@@ -13,25 +13,23 @@ namespace AnnouncementPlatformMobile
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AnnouncementsPage : ContentPage
     {
-        public ObservableCollection<Announcement> Announcements { get; set; }
+        public List<Announcement> Announcements;
         public AnnouncementsPage()
         {
             InitializeComponent();
-            announcementsCollectionView.ItemsSource = Announcements;
             LoadAnnouncementsAsync();
+            announcementsCollectionView.ItemsSource = Announcements;
         }
         private async void LoadAnnouncementsAsync()
         {
+            Announcements = new List<Announcement>();
             List<Announcement> announcements = await App.Database.GetItemsAsync<Announcement>();
-
-
-            Announcements.Clear();
-
 
             foreach (var announcement in announcements)
             {
                 Announcements.Add(announcement);
             }
+            announcementsCollectionView.ItemsSource = Announcements;
         }
         private void DeleteAnn_Clicked(object sender, EventArgs e)
         {

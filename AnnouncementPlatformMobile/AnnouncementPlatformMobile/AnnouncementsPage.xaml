@@ -77,7 +77,6 @@
                                 <StackLayout>
                                     <Label Text="Position Level:" TextColor="White" FontSize="Medium" />
                                     <Label Text="{Binding PositionLevel}" TextColor="White" FontAttributes="Bold" FontSize="Small" />
-                                    <!-- Other details here -->
                                     <Button Text="Zobacz" Clicked="ViewDetails_Clicked" />
                                     <Button Text="Usun" Clicked="DeleteAnn_Clicked"  />
                                 </StackLayout>
