@@ -3,10 +3,90 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AnnouncementPlatformMobile.AnnouncementsPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+        <Grid Padding="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0" Orientation="Vertical">
+                <SearchBar x:Name="searchBar" Placeholder="Search..." FontSize="Medium" />
+                <Picker x:Name="PositionLevelPicker" Title="Position Level">
+                    <Picker.Items>
+                        <x:String>Praktykant/Praktykantka</x:String>
+                        <x:String>Asystent/Asystentka</x:String>
+                        <x:String>Mlodszy Specjalista(Junior)/Mlodsza Specjalistka(Juniorka)</x:String>
+                        <x:String>Specjalista(Mid/Regular)/Specjalistka(Mid/Regular)</x:String>
+                        <x:String>Starszy Specjalista(Senior)/Starsza Specjalistka(Seniorka)</x:String>
+                        <x:String>Ekspert/Ekspertka</x:String>
+                        <x:String>Kierownik Koordynator/Kierowniczka Koordynatorka</x:String>
+                        <x:String>Menadzer/Menadzerka</x:String>
+                        <x:String>Dyrektor/Dyrektorka</x:String>
+                        <x:String>Prezes/Prezeska</x:String>
+                        <x:String>Pracownik Fizyczny/Pracowniczka Fizyczna</x:String>
+
+
+                    </Picker.Items>
+                </Picker>
+                <Picker x:Name="ContractTypePicker" Title="Contract Type">
+                    <Picker.Items>
+                        <x:String>Umowa o prace</x:String>
+                        <x:String>Umowa o dzielo</x:String>
+                        <x:String>Umowa o zlecenie</x:String>
+                        <x:String>Kontrakt B2B</x:String>
+                        <x:String>Umowa na zastepstwo</x:String>
+                        <x:String>Umowa Agencyjna</x:String>
+                        <x:String>Umowa o prace tymczasowa</x:String>
+                        <x:String>Umowa o staz/praktyki</x:String>
+                    </Picker.Items>
+                </Picker>
+                <Picker x:Name="WorkingTypePicker" Title="Working Type">
+                    <Picker.Items>
+                        <x:String>Dodatkowa/Tymczasowa</x:String>
+                        <x:String>Czesc etatu</x:String>
+                        <x:String>Pelen etat</x:String>
+                    </Picker.Items>
+                </Picker>
+                <Picker x:Name="WorkingDimensionPicker" Title="Working Dimension">
+                    <Picker.Items>
+                        <x:String>Praca stacjonarna</x:String>
+                        <x:String>Praca hybrydowa</x:String>
+                        <x:String>Praca mobilna</x:String>
+                        <x:String>Praca zdalna</x:String>
+                    </Picker.Items>
+                </Picker>
+                <Button Text="Search" Clicked="Search_Clicked" />
+                <Button Text="Clear" Clicked="Clear_Clicked" />
+            </StackLayout>
+
+            <CollectionView Grid.Row="1" x:Name="announcementsCollectionView" SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10" BackgroundColor="DarkSlateGray">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Frame BackgroundColor="Gray" CornerRadius="10" Padding="10">
+                                <StackLayout>
+                                    <Label Text="Poszukiwany:" TextColor="White" FontAttributes="Bold" FontSize="Medium" />
+                                    <Label Text="{Binding PositionName}" TextColor="White" FontSize="Small" />
+                                </StackLayout>
+                            </Frame>
+                            <Frame Grid.Column="1" BackgroundColor="Purple" CornerRadius="10" Padding="10">
+                                <StackLayout>
+                                    <Label Text="Position Level:" TextColor="White" FontSize="Medium" />
+                                    <Label Text="{Binding PositionLevel}" TextColor="White" FontAttributes="Bold" FontSize="Small" />
+                                    <!-- Other details here -->
+                                    <Button Text="Zobacz" Clicked="ViewDetails_Clicked" />
+                                    <Button Text="Usun" Clicked="DeleteAnn_Clicked"  />
+                                </StackLayout>
+                            </Frame>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+
+</ContentPage.Content>
 </ContentPage>

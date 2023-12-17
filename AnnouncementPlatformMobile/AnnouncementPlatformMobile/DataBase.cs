@@ -45,10 +45,34 @@ namespace AnnouncementPlatformMobile
         //    await _database.CreateTableAsync<Announcement>();
         //    await _database.DropTableAsync<Applied>();
         //    await _database.CreateTableAsync<Applied>();
-
-
-
         //}
+        public async Task ShowAllAnnouncementsAsync()
+        {
+            try
+            {
+                // Pobieranie wszystkich ogłoszeń z bazy danych
+                var announcementsList = await App.Database.GetItemsAsync<Announcement>();
+
+                // Budowanie długiego stringa, który zawiera wszystkie ogłoszenia
+                StringBuilder sb = new StringBuilder();
+                foreach (var announcement in announcementsList)
+                {
+                    sb.AppendLine($"ID: {announcement.Id}, Position: {announcement.PositionName}, Level: {announcement.PositionLevel}, Company: {announcement.Company}");
+                    // Dodaj więcej szczegółów według potrzeb
+                }
+
+                // Sprawdzanie, czy lista jest pusta
+                string result = sb.Length > 0 ? sb.ToString() : "Brak ogłoszeń w bazie danych.";
+
+                // Wyświetlanie wszystkich ogłoszeń w alert dialog
+                await App.Current.MainPage.DisplayAlert("Wszystkie ogłoszenia", result, "OK");
+            }
+            catch (Exception ex)
+            {
+                // Wyświetlanie błędu, jeśli wystąpił problem
+                await App.Current.MainPage.DisplayAlert("Błąd", $"Wystąpił problem podczas ładowania ogłoszeń: {ex.Message}", "OK");
+            }
+        }
 
 
     }

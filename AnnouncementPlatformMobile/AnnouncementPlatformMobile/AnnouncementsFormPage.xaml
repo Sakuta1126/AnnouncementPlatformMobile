@@ -1,12 +1,124 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AnnouncementPlatformMobile.AnnouncementsFormPage">
+             x:Class="AnnouncementPlatformMobile.AnnouncementsFormPage" Title="Add Announcement">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <Grid Padding="10" RowSpacing="10" ColumnSpacing="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" Grid.ColumnSpan="2" Text="Add Announcement" HorizontalOptions="Center" VerticalOptions="Center" FontSize="20" TextColor="LimeGreen" />
+
+
+                <Entry Grid.Row="1" Grid.Column="0" x:Name="PositionName" HeightRequest="40" TextColor="White" PlaceholderColor="Gray" BackgroundColor="#222" Placeholder="Position Name"/>
+
+              
+                <Picker Grid.Row="1" Grid.Column="1" x:Name="PositionLevel" HeightRequest="40" TextColor="White" BackgroundColor="#222" Title="Position Level">
+                    <Picker.Items>
+                        <x:String>Praktykant/Praktykantka</x:String>
+                        <x:String>Asystent/Asystentka</x:String>
+                        <x:String>Mlodszy Specjalista(Junior)/Mlodsza Specjalistka(Juniorka)</x:String>
+                        <x:String>Specjalista(Mid/Regular)/Specjalistka(Mid/Regular)</x:String>
+                        <x:String>Starszy Specjalista(Senior)/Starsza Specjalistka(Seniorka)</x:String>
+                        <x:String>Ekspert/Ekspertka</x:String>
+                        <x:String>Kierownik Koordynator/Kierowniczka Koordynatorka</x:String>
+                        <x:String>Menadzer/Menadzerka</x:String>
+                        <x:String>Dyrektor/Dyrektorka</x:String>
+                        <x:String>Prezes/Prezeska</x:String>
+                        <x:String>Pracownik Fizyczny/Pracowniczka Fizyczna</x:String>
+                   
+                        
+                    </Picker.Items>
+                </Picker>
+
+             
+                
+                <Picker Grid.Row="2" Grid.Column="0" x:Name="ContractType" HeightRequest="40" TextColor="White"  BackgroundColor="#222" Title="Contract Type">
+                    <Picker.Items>
+                        <x:String>Umowa o prace</x:String>
+                        <x:String>Umowa o dzielo</x:String>
+                        <x:String>Umowa o zlecenie</x:String>
+                        <x:String>Kontrakt B2B</x:String>
+                        <x:String>Umowa na zastepstwo</x:String>
+                        <x:String>Umowa Agencyjna</x:String>
+                        <x:String>Umowa o prace tymczasowa</x:String>
+                        <x:String>Umowa o staz/praktyki</x:String>
+                    </Picker.Items>
+                </Picker>
+
+             
+                <Entry Grid.Row="2" Grid.Column="1" x:Name="Company" HeightRequest="40" TextColor="White" PlaceholderColor="Gray" BackgroundColor="#222" Placeholder="Company"  />
+
+                
+                <Entry Grid.Row="3" Grid.Column="0" x:Name="Localization" HeightRequest="40" TextColor="White" PlaceholderColor="Gray" BackgroundColor="#222" Placeholder="Localization" />
+
+                <Label Grid.Row="3" Grid.Column="1" Text="WorkingDimension" FontSize="30" HorizontalOptions="Center" />
+                <Picker Grid.Row="3" Grid.Column="1" x:Name="WorkingDimension" HeightRequest="40" TextColor="White" BackgroundColor="#222" Title="Working Dimensions">
+                    <Picker.Items>
+                        <x:String>Dodatkowa/Tymczasowa</x:String>
+                        <x:String>Czesc etatu</x:String>
+                        <x:String>Pelen etat</x:String>
+                    </Picker.Items>
+                </Picker>
+
+          
+                <Picker Grid.Row="4" Grid.Column="0" x:Name="Workingtype" HeightRequest="40" TextColor="White"  BackgroundColor="#222" Title="Working Type">
+                    <Picker.Items>
+                        <x:String>Praca stacjonarna</x:String>
+                        <x:String>Praca hybrydowa</x:String>
+                        <x:String>Praca mobilna</x:String>
+                        <x:String>Praca zdalna</x:String>
+                    </Picker.Items>
+                </Picker>
+
+               
+                <Entry Grid.Row="4" Grid.Column="1" x:Name="Sallary" HeightRequest="40" TextColor="White" PlaceholderColor="Gray" BackgroundColor="#222" Placeholder="Sallary" />
+
+                <Entry Grid.Row="5" Grid.Column="0" x:Name="WorkingDays" HeightRequest="40" TextColor="White" PlaceholderColor="Gray" BackgroundColor="#222" Placeholder="Working Days" />
+
+            
+                <Entry Grid.Row="5" Grid.Column="1" x:Name="WorkingHours" HeightRequest="40" TextColor="White" PlaceholderColor="Gray" BackgroundColor="#222" Placeholder="Working Hours" />
+
+                
+                <DatePicker Grid.Row="6" Grid.Column="0" x:Name="AnnouncementStart" HeightRequest="40" TextColor="White"  BackgroundColor="#222" />
+
+               
+                <DatePicker Grid.Row="6" Grid.Column="1" x:Name="AnnouncementEnd" HeightRequest="40" TextColor="White"  BackgroundColor="#222" />
+
+               
+                <Entry Grid.Row="7" Grid.Column="0" x:Name="Category" HeightRequest="40" TextColor="White" PlaceholderColor="Gray" BackgroundColor="#222" Placeholder="Category" />
+
+                
+                <Entry Grid.Row="7" Grid.Column="1" x:Name="Duties" HeightRequest="40" TextColor="White" PlaceholderColor="Gray" BackgroundColor="#222" Placeholder="Duties" />
+
+                
+                <Entry Grid.Row="8" Grid.Column="0" x:Name="Benefits" HeightRequest="40" TextColor="White" PlaceholderColor="Gray" BackgroundColor="#222" Placeholder="Benefits" />
+
+                
+                <Entry Grid.Row="8" Grid.Column="1" x:Name="AboutCompany" HeightRequest="40" TextColor="White" PlaceholderColor="Gray" BackgroundColor="#222" Placeholder="About Company"/>
+
+           
+                <Entry Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" x:Name="Requirements" HeightRequest="40" TextColor="White" PlaceholderColor="Gray" BackgroundColor="#222" Placeholder="Requirements" />
+
+                <Button Grid.Row="10" Grid.ColumnSpan="2" Text="Add" x:Name="AddAnnouncement" Clicked="AddAnnouncement_Clicked" FontSize="20" WidthRequest="400" HeightRequest="50" HorizontalOptions="Center" BackgroundColor="LimeGreen" TextColor="Black" />
+            </Grid>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
