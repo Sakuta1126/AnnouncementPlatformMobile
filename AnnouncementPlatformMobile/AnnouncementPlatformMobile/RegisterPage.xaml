@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AnnouncementPlatformMobile.RegisterPage" Title="Register" >
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+            <Label Text="Registration" FontSize="Title" HorizontalOptions="Center" Margin="0,0,0,20" />
+
+            <Entry Placeholder="Username" x:Name="UsernameEntry" PlaceholderColor="#FFFFFF" BackgroundColor="#333333" TextColor="#FFFFFF" WidthRequest="200" />
+            <Entry Placeholder="Password" x:Name="PasswordEntry" IsPassword="True" PlaceholderColor="#FFFFFF" BackgroundColor="#333333" TextColor="#FFFFFF" WidthRequest="200"/>
+            <StackLayout Orientation="Horizontal" Margin="0,20,0,0">
+                <Label Text="Register as Admin" TextColor="Black" VerticalOptions="Center" />
+                <Switch x:Name="AdminSwitch"   IsToggled="False" ThumbColor="#00C853" OnColor="#333333" />
+            </StackLayout>
+
+            <Button Text="Register" Clicked="OnRegisterClicked" HorizontalOptions="Center" Margin="0,40,0,0" BackgroundColor="#00C853" TextColor="#FFFFFF" CornerRadius="10" WidthRequest="150" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

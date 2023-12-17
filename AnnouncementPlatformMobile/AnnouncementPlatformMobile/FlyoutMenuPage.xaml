@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:AnnouncementPlatformMobile"
+             x:Class="AnnouncementPlatformMobile.FlyoutMenuPage" Title="FlyoutMenu">
+    <StackLayout>
+        <ListView x:Name="menulist" x:FieldModifier="public">
+            <ListView.ItemsSource>
+                <x:Array Type="{x:Type x:Object}">
+                    <local:FlyoutItemPage Title="Home" IconSource="home.png"  TargetPage="{x:Type local:HomePage}" />
+                    <local:FlyoutItemPage Title="Register" IconSource="register.png" TargetPage="{x:Type local:RegisterPage}" />
+                    <local:FlyoutItemPage Title="Login" IconSource="login.png" TargetPage="{x:Type local:LogInPage}" />
+                    <local:FlyoutItemPage Title="Announcements" IconSource="announcement.png" TargetPage="{x:Type local:AnnouncementsPage}" />
+                    <local:FlyoutItemPage Title="Applied" IconSource="checked.png" TargetPage="{x:Type local:AppliedPage}" />
+                    <local:FlyoutItemPage Title="Profile" IconSource="user.png" TargetPage="{x:Type local:UserProfilePage}" />
+                    <local:FlyoutItemPage Title="Profile Information" IconSource="form.png" TargetPage="{x:Type local:UserFormPage}" />
+                    <local:FlyoutItemPage Title="Add Announcement" IconSource="form.png" TargetPage="{x:Type local:AnnouncementsFormPage}" />
+                    <local:FlyoutItemPage Title="LogOut" IconSource="logout.png" TargetPage="{x:Type local:LogOutPage}" />
+                   
+                </x:Array>
+            </ListView.ItemsSource>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="33"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding IconSource}"></Image>
+                            <Label Grid.Column="1" Text="{Binding Title}" VerticalOptions="Center"></Label>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
