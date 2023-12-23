@@ -29,7 +29,6 @@ namespace AnnouncementPlatformMobile
         public string Benefits { get; set; }
         public string AboutCompany { get; set; }
         public int user_id { get; set; }
-
         public int announcement_id { get; set; }
 
     }

@@ -16,5 +16,27 @@ namespace AnnouncementPlatformMobile
         {
             InitializeComponent();
         }
+
+
+        private void Logout_Clicked(object sender, EventArgs e)
+        {
+            var loggedInUser = App.Database.GetItemsAsync<Account>().Result.FirstOrDefault(u => u.IsLoggedIn);
+
+            if (loggedInUser != null)
+            {
+
+                loggedInUser.IsLoggedIn = false;
+                App.Database.SaveItemAsync(loggedInUser).Wait();
+
+                DisplayAlert("Information","Wylogowano pomyślnie!","OK");
+
+                
+            }
+            else
+            {
+
+               DisplayAlert("Information","User is not logged in","OK");
+            }
+        }
     }
 }

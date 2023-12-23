@@ -42,6 +42,7 @@ namespace AnnouncementPlatformMobile
                 UsernameEntry.Text = string.Empty;
                 PasswordEntry.Text = string.Empty;
                 AdminSwitch.IsToggled = false;
+             
             }
             else
             {

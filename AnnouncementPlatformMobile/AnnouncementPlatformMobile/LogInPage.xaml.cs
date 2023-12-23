@@ -36,12 +36,13 @@ namespace AnnouncementPlatformMobile
 
                         user.IsLoggedIn = true;
                         UserStore.SetLoggedInUserId(user.Id);
+                        UserStore.SetLoggedInUserAdmin(user.IsAdmin);
                         App.Database.SaveItemAsync(user).Wait();
                         DisplayAlert("Information","Logging went correctly","OK");
-
                         UsernameEntry.Text = string.Empty;
                         PasswordEntry.Text = string.Empty;
-                        
+                      
+
 
 
                     }

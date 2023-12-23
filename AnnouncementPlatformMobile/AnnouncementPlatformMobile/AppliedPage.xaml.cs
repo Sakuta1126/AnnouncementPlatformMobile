@@ -15,6 +15,41 @@ namespace AnnouncementPlatformMobile
         public AppliedPage()
         {
             InitializeComponent();
+            LoadAppliedAsync();
+        }
+        private async void LoadAppliedAsync()
+        {
+
+            List<Applied> allApplied = await App.Database.GetItemsAsync<Applied>();
+
+            var loggedInUser = UserStore.LoggedInUserId;
+
+
+
+            if (loggedInUser != 0)
+            {
+
+                List<Applied> userApplied = allApplied.Where(apply => apply.user_id == loggedInUser).ToList();
+
+
+                App.AppliedAnnouncements.Clear();
+
+
+                foreach (var userApply in userApplied)
+                {
+                    App.AppliedAnnouncements.Add(userApply);
+                }
+            }
+        }
+
+        private void ViewDetails_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DeleteAnn_Clicked(object sender, EventArgs e)
+        {
+
         }
     }
 }

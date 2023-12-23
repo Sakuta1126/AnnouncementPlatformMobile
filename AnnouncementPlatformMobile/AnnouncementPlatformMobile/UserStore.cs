@@ -9,10 +9,15 @@ namespace AnnouncementPlatformMobile
     public static class UserStore
     {
         public static int LoggedInUserId { get; private set; }
-
+        public static bool LoggedInUserAdmin { get; private set; }
+       
         public static void SetLoggedInUserId(int userId)
         {
             LoggedInUserId = userId;
+        } 
+        public static void SetLoggedInUserAdmin(bool userIsAdmin)
+        {
+            LoggedInUserAdmin = userIsAdmin;
         }
     }
 }

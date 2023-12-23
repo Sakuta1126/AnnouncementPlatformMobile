@@ -84,6 +84,7 @@ namespace AnnouncementPlatformMobile
             };
             App.Database.SaveItemAsync(newAnnouncement);
             DisplayAlert("Informacja", "Dodano ogloszenie", "OK");
+            Navigation.PushAsync(new HomePage());
         }
     }
 }

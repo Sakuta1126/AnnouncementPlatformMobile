@@ -77,8 +77,9 @@
                                 <StackLayout>
                                     <Label Text="Position Level:" TextColor="White" FontSize="Medium" />
                                     <Label Text="{Binding PositionLevel}" TextColor="White" FontAttributes="Bold" FontSize="Small" />
-                                    <Button Text="Zobacz" Clicked="ViewDetails_Clicked" />
-                                    <Button Text="Usun" Clicked="DeleteAnn_Clicked"  />
+                                    <Button Text="Check" CommandParameter="{Binding .}" Clicked="ViewDetails_Clicked" />
+                                    <Button Text="Delete" Clicked="DeleteAnn_Clicked" CommandParameter="{Binding .}"/>
+                                    <Button x:Name="applyButton" Text="Apply" CommandParameter="{Binding .}" Clicked="Apply_Clicked"/>
                                 </StackLayout>
                             </Frame>
                         </Grid>

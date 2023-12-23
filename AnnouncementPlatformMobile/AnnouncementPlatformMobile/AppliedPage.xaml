@@ -4,9 +4,32 @@
              x:Class="AnnouncementPlatformMobile.AppliedPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <CollectionView  x:Name="appliedannouncementsCollectionView" SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="10" BackgroundColor="DarkSlateGray">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Frame BackgroundColor="Gray" CornerRadius="10" Padding="10">
+                            <StackLayout>
+                                <Label Text="Poszukiwany:" TextColor="White" FontAttributes="Bold" FontSize="Medium" />
+                                <Label Text="{Binding PositionName}" TextColor="White" FontSize="Small" />
+                            </StackLayout>
+                        </Frame>
+                        <Frame Grid.Column="1" BackgroundColor="Purple" CornerRadius="10" Padding="10">
+                            <StackLayout>
+                                <Label Text="Position Level:" TextColor="White" FontSize="Medium" />
+                                <Label Text="{Binding PositionLevel}" TextColor="White" FontAttributes="Bold" FontSize="Small" />
+                                <Button Text="Zobacz" CommandParameter="{Binding .}" Clicked="ViewDetails_Clicked" />
+                                <Button Text="Usun" Clicked="DeleteAnn_Clicked"  />
+                            </StackLayout>
+                        </Frame>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
