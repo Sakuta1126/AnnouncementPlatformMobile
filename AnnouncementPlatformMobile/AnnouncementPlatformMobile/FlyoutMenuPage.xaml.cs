@@ -16,39 +16,14 @@ namespace AnnouncementPlatformMobile
         public FlyoutMenuPage()
         {
             InitializeComponent();
-           
-            UpdateMenuItems();
+          App.UpdateMenuItems();
+            UpdateListView();
         }
-        private void UpdateMenuItems()
+
+        public void UpdateListView()
         {
-            var items = new List<FlyoutItemPage>();
-
-            // Elementy menu dostępne dla wszystkich
-            items.Add(new FlyoutItemPage { Title = "Home", TargetPage = typeof(HomePage) });
-
-            if (UserStore.LoggedInUserId != null)
-            {
-                // Elementy menu dla zalogowanych użytkowników
-                items.Add(new FlyoutItemPage { Title = "Announcements", TargetPage = typeof(AnnouncementsPage) });
-                items.Add(new FlyoutItemPage { Title = "Applied", TargetPage = typeof(AppliedPage) });
-                items.Add(new FlyoutItemPage { Title = "Profile Information", TargetPage = typeof(UserFormPage) });
-                items.Add(new FlyoutItemPage { Title = "Profile", TargetPage = typeof(UserProfilePage) });
-                items.Add(new FlyoutItemPage { Title = "LogOut", TargetPage = typeof(LogOutPage) });
-
-                if (UserStore.LoggedInUserAdmin)
-                {
-                    // Dodatkowy element menu tylko dla adminów
-                    items.Add(new FlyoutItemPage { Title = "Add Announcement", TargetPage = typeof(AnnouncementsFormPage) });
-                }
-            }
-            else
-            {
-                // Elementy menu dla niezalogowanych użytkowników
-                items.Add(new FlyoutItemPage { Title = "Register", TargetPage = typeof(RegisterPage) });
-                items.Add(new FlyoutItemPage { Title = "Login", TargetPage = typeof(LogInPage) });
-            }
-
-            menulist.ItemsSource = items;
+            menulist.ItemsSource = null;
+            menulist.ItemsSource = App.MenuItems;
         }
     }
 }

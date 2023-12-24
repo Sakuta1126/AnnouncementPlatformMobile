@@ -27,10 +27,11 @@ namespace AnnouncementPlatformMobile
 
                 loggedInUser.IsLoggedIn = false;
                 App.Database.SaveItemAsync(loggedInUser).Wait();
-
+                UserStore.SetLoggedInUser(false);
                 DisplayAlert("Information","Wylogowano pomyślnie!","OK");
+                Navigation.PushAsync(new HomePage());
+                App.UpdateMenuItems();
 
-                
             }
             else
             {

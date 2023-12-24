@@ -16,7 +16,6 @@
                     <local:FlyoutItemPage Title="Profile Information" IconSource="form.png" TargetPage="{x:Type local:UserFormPage}" />
                     <local:FlyoutItemPage Title="Add Announcement" IconSource="form.png" TargetPage="{x:Type local:AnnouncementsFormPage}" />
                     <local:FlyoutItemPage Title="LogOut" IconSource="logout.png" TargetPage="{x:Type local:LogOutPage}" />
-                   
                 </x:Array>
             </ListView.ItemsSource>
             <ListView.ItemTemplate>

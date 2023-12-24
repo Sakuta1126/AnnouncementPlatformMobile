@@ -10,6 +10,7 @@ namespace AnnouncementPlatformMobile
     {
         public static int LoggedInUserId { get; private set; }
         public static bool LoggedInUserAdmin { get; private set; }
+        public static bool islogged { get; private set; }
        
         public static void SetLoggedInUserId(int userId)
         {
@@ -18,6 +19,10 @@ namespace AnnouncementPlatformMobile
         public static void SetLoggedInUserAdmin(bool userIsAdmin)
         {
             LoggedInUserAdmin = userIsAdmin;
+        }
+        public static void SetLoggedInUser(bool userIsLogged)
+        {
+            islogged = userIsLogged;
         }
     }
 }

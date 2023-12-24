@@ -16,7 +16,7 @@ namespace AnnouncementPlatformMobile
         {
             InitializeComponent();
            App.Database.ShowAllAnnouncementsAsync();
-            
+            App.Database.ClearDatabaseAsync();
             flyoutmenu.menulist.ItemSelected += OnSelectedItem;
         }
        

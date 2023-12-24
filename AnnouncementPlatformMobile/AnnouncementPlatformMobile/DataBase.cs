@@ -33,19 +33,20 @@ namespace AnnouncementPlatformMobile
         {
             return _database.DeleteAsync(item);
         }
-        //public async Task ClearDatabaseAsync()
-        //{
-        //    await _database.DropTableAsync<User>();
-        //    await _database.CreateTableAsync<User>();
-        //    await _database.DropTableAsync<Account>();
-        //    await _database.CreateTableAsync<Account>();
-        //    await _database.DropTableAsync<Lang>();
-        //    await _database.CreateTableAsync<Lang>();
-        //    await _database.DropTableAsync<Announcement>();
-        //    await _database.CreateTableAsync<Announcement>();
-        //    await _database.DropTableAsync<Applied>();
-        //    await _database.CreateTableAsync<Applied>();
-        //}
+        public async Task ClearDatabaseAsync()
+        {
+            await _database.DropTableAsync<User>();
+            await _database.CreateTableAsync<User>();
+            await _database.DropTableAsync<Account>();
+            await _database.CreateTableAsync<Account>();
+            await _database.DropTableAsync<Lang>();
+            await _database.CreateTableAsync<Lang>();
+            await _database.DropTableAsync<Announcement>();
+            await _database.CreateTableAsync<Announcement>();
+            await _database.DropTableAsync<Applied>();
+            await _database.CreateTableAsync<Applied>();
+         
+        }
         public async Task ShowAllAnnouncementsAsync()
         {
             try

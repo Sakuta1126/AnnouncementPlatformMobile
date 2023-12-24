@@ -38,10 +38,12 @@ namespace AnnouncementPlatformMobile
                         UserStore.SetLoggedInUserId(user.Id);
                         UserStore.SetLoggedInUserAdmin(user.IsAdmin);
                         App.Database.SaveItemAsync(user).Wait();
+                        UserStore.SetLoggedInUser(true);
                         DisplayAlert("Information","Logging went correctly","OK");
                         UsernameEntry.Text = string.Empty;
                         PasswordEntry.Text = string.Empty;
-                      
+                        Navigation.PushAsync(new HomePage());
+                        App.UpdateMenuItems();
 
 
 
