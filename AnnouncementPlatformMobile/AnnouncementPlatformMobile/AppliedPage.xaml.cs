@@ -10,16 +10,18 @@ using Xamarin.Forms.Xaml;
 namespace AnnouncementPlatformMobile
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
+   
     public partial class AppliedPage : ContentPage
     {
+
         public AppliedPage()
         {
             InitializeComponent();
-            LoadAppliedAsync();
+           LoadAppliedAsync();
         }
         private async void LoadAppliedAsync()
         {
-
+           
             List<Applied> allApplied = await App.Database.GetItemsAsync<Applied>();
 
             var loggedInUser = UserStore.LoggedInUserId;
@@ -35,21 +37,16 @@ namespace AnnouncementPlatformMobile
                 App.AppliedAnnouncements.Clear();
 
 
-                foreach (var userApply in userApplied)
+                foreach (Applied userApply in userApplied)
                 {
                     App.AppliedAnnouncements.Add(userApply);
                 }
+                    appliedannouncementsCollectionView.ItemsSource = App.AppliedAnnouncements;
             }
+           
+           
         }
 
-        private void ViewDetails_Clicked(object sender, EventArgs e)
-        {
-
-        }
-
-        private void DeleteAnn_Clicked(object sender, EventArgs e)
-        {
-
-        }
+      
     }
 }

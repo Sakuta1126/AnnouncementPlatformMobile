@@ -8,7 +8,7 @@ namespace AnnouncementPlatformMobile
 {
     public static class UserStore
     {
-        public static int LoggedInUserId { get; private set; }
+        public static int LoggedInUserId { get;  set; }
         public static bool LoggedInUserAdmin { get; private set; }
         public static bool islogged { get; private set; }
        

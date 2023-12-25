@@ -42,7 +42,7 @@ namespace AnnouncementPlatformMobile
                         DisplayAlert("Information","Logging went correctly","OK");
                         UsernameEntry.Text = string.Empty;
                         PasswordEntry.Text = string.Empty;
-                        Navigation.PushAsync(new HomePage());
+                        App.FlyoutPage.RedirectToHomePage();
                         App.UpdateMenuItems();
 
 

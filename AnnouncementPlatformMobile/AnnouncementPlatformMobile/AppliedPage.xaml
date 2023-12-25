@@ -1,29 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AnnouncementPlatformMobile.AppliedPage">
+             x:Class="AnnouncementPlatformMobile.AppliedPage" Title="Applied">
     <ContentPage.Content>
         <StackLayout>
+            <Label Text="Applied" TextColor="#00C853" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25" Margin="0,0,0,40"></Label>
         <CollectionView  x:Name="appliedannouncementsCollectionView" SelectionMode="None">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Padding="10" BackgroundColor="DarkSlateGray">
+                    <Grid Padding="10" BackgroundColor="Black">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <Frame BackgroundColor="Gray" CornerRadius="10" Padding="10">
+                            <Frame BackgroundColor="#00C853" CornerRadius="10" Padding="10">
                             <StackLayout>
-                                <Label Text="Poszukiwany:" TextColor="White" FontAttributes="Bold" FontSize="Medium" />
-                                <Label Text="{Binding PositionName}" TextColor="White" FontSize="Small" />
+                                    <Label Text="Poszukiwany:" TextColor="Black" FontAttributes="Bold" FontSize="Medium" />
+                                    <Label Text="{Binding PositionName}" TextColor="Black" FontSize="Small" />
                             </StackLayout>
                         </Frame>
-                        <Frame Grid.Column="1" BackgroundColor="Purple" CornerRadius="10" Padding="10">
+                            <Frame Grid.Column="1" BackgroundColor="#00C853" CornerRadius="10" Padding="10">
                             <StackLayout>
-                                <Label Text="Position Level:" TextColor="White" FontSize="Medium" />
-                                <Label Text="{Binding PositionLevel}" TextColor="White" FontAttributes="Bold" FontSize="Small" />
-                                <Button Text="Zobacz" CommandParameter="{Binding .}" Clicked="ViewDetails_Clicked" />
-                                <Button Text="Usun" Clicked="DeleteAnn_Clicked"  />
+                                    <Label Text="Position Level:" TextColor="Black" FontSize="Medium" />
+                                    <Label Text="{Binding PositionLevel}" TextColor="Black" FontAttributes="Bold" FontSize="Small" />
                             </StackLayout>
                         </Frame>
                     </Grid>

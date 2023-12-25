@@ -25,10 +25,8 @@ namespace AnnouncementPlatformMobile
             var result = await Xamarin.Essentials.MediaPicker.PickPhotoAsync();
             if (result != null)
             {
-                // Użyj właściwości FullPath obiektu FileResult
                 PhotoPath.Text = result.FullPath;
 
-                // Ustaw obraz
                 ProfileImage.Source = ImageSource.FromFile(result.FullPath);
             }
         }
@@ -39,7 +37,7 @@ namespace AnnouncementPlatformMobile
 
             if (existingUser != null)
             {
-                await DisplayAlert("Error", "Profil użytkownika został już wypełniony.", "OK");
+                await DisplayAlert("Error", "Form has been filled before", "OK");
                 return;
             }
 
@@ -53,25 +51,25 @@ namespace AnnouncementPlatformMobile
                 string.IsNullOrWhiteSpace(Lang.Text) ||
                 LangLevel.SelectedItem == null)
             {
-                await DisplayAlert("Error", "Wszystkie pola muszą być wypełnione.", "OK");
+                await DisplayAlert("Error", "All fields must be filled", "OK");
                 return;
             }
 
             if (!Regex.IsMatch(Email.Text, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"))
             {
-                await DisplayAlert("Error", "Nieprawidłowy format adresu email.", "OK");
+                await DisplayAlert("Error", "Incorrect format of email", "OK");
                 return;
             }
 
             if (!Regex.IsMatch(PhoneNumber.Text, @"^[0-9]{9}$"))
             {
-                await DisplayAlert("Error", "Nieprawidłowy format numeru telefonu.", "OK");
+                await DisplayAlert("Error", "Incorrect format of phone number", "OK");
                 return;
             }
 
             if (BirthDate.Date > DateTime.Now)
             {
-                await DisplayAlert("Error", "Data urodzenia nie może być późniejsza niż dzisiejsza data.", "OK");
+                await DisplayAlert("Error", "You cant use it if ur born today damn", "OK");
                 return;
             }
 
@@ -99,8 +97,8 @@ namespace AnnouncementPlatformMobile
 
             await App.Database.SaveItemAsync(lang);
 
-            await DisplayAlert("Success", "Pomyślnie dodano użytkownika!", "OK");
-
+            await DisplayAlert("Success", "User added succesfully!", "OK");
+            App.FlyoutPage.RedirectToHomePage();
             Name.Text = string.Empty;
             Surname.Text = string.Empty;
             PhoneNumber.Text = string.Empty;

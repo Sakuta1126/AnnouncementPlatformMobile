@@ -16,7 +16,8 @@ namespace AnnouncementPlatformMobile
         public FlyoutMenuPage()
         {
             InitializeComponent();
-          App.UpdateMenuItems();
+            App.FlyoutMenuPage = this;
+            App.UpdateMenuItems();
             UpdateListView();
         }
 

@@ -1,24 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AnnouncementPlatformMobile.UserProfilePage">
+             x:Class="AnnouncementPlatformMobile.UserProfilePage" Title="Profile">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Padding="20" Spacing="15">
-                <BoxView HeightRequest="1000" WidthRequest="1000" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                    <BoxView.Background>
+
+                <Frame BackgroundColor="#444444" Padding="10" CornerRadius="10">
+                        <Image x:Name="ProfilePhoto" HeightRequest="200" WidthRequest="200" Aspect="AspectFill"/>
+                </Frame>
+                <Frame>
+                    <Frame.Background>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                             <GradientStop Color="#232526" Offset="0.0"/>
                             <GradientStop Color="#414345" Offset="1.0"/>
                         </LinearGradientBrush>
-                    </BoxView.Background>
-                </BoxView>
-
-                <Frame BackgroundColor="#444444" Padding="10" CornerRadius="10">
-                    <Image x:Name="ProfilePhoto" HeightRequest="200" WidthRequest="200" Aspect="AspectFill"/>
-                </Frame> 
-
-                <!-- Stylizowane etykiety -->
+                    </Frame.Background>
+                
+                <StackLayout>
                 <Label x:Name="NameLabel" FontSize="Medium" TextColor="White"/>
                 <Label x:Name="SurnameLabel" FontSize="Medium" TextColor="White"/>
                 <Label x:Name="EmailLabel" FontSize="Medium" TextColor="White"/>
@@ -28,6 +27,8 @@
                 <Label x:Name="SummaryLabel" FontSize="Medium" TextColor="White"/>
                 <Label x:Name="LangLabel" FontSize="Medium" TextColor="White"/>
                 <Label x:Name="LangLevelLabel" FontSize="Medium" TextColor="White"/>
+                </StackLayout>
+                 </Frame>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

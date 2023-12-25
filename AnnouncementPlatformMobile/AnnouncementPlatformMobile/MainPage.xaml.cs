@@ -15,8 +15,8 @@ namespace AnnouncementPlatformMobile
         public MainPage()
         {
             InitializeComponent();
-           App.Database.ShowAllAnnouncementsAsync();
-            App.Database.ClearDatabaseAsync();
+          
+            App.FlyoutPage = this;
             flyoutmenu.menulist.ItemSelected += OnSelectedItem;
         }
        
@@ -30,6 +30,13 @@ namespace AnnouncementPlatformMobile
                 IsPresented = false;
 
             }
+        }
+
+        public void RedirectToHomePage()
+        {
+            Detail = new NavigationPage((Page)Activator.CreateInstance(typeof(HomePage)));
+            flyoutmenu.menulist.SelectedItem = null;
+            IsPresented = false;
         }
     }
 }

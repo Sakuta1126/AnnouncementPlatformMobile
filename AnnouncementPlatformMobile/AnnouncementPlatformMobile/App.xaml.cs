@@ -12,7 +12,10 @@ namespace AnnouncementPlatformMobile
     {
         public static List<FlyoutItemPage> MenuItems { get; set; }
         public static List<Announcement> Announcements;
-        public static List <Applied> AppliedAnnouncements;
+        public static List<Applied> AppliedAnnouncements = new List<Applied>();
+
+        public static FlyoutMenuPage FlyoutMenuPage { get; set; }
+        public static MainPage FlyoutPage { get; set; }
 
         static DataBase database;
 
@@ -37,12 +40,10 @@ namespace AnnouncementPlatformMobile
         {
             var items = new List<FlyoutItemPage>();
 
-            // Elementy menu dostępne dla wszystkich
             items.Add(new FlyoutItemPage { Title = "Home", TargetPage = typeof(HomePage), IconSource = "home.png" });
 
             if (UserStore.islogged == true )
             {
-                // Elementy menu dla zalogowanych użytkowników
                 items.Add(new FlyoutItemPage { Title = "Announcements", TargetPage = typeof(AnnouncementsPage), IconSource = "announcement.png" });
                 items.Add(new FlyoutItemPage { Title = "Applied", TargetPage = typeof(AppliedPage), IconSource = "checked.png" });
                 items.Add(new FlyoutItemPage { Title = "Profile Information", TargetPage = typeof(UserFormPage), IconSource = "form.png" });
@@ -51,27 +52,16 @@ namespace AnnouncementPlatformMobile
 
                 if (UserStore.LoggedInUserAdmin)
                 {
-                    // Dodatkowy element menu tylko dla adminów
                     items.Add(new FlyoutItemPage { Title = "Add Announcement", TargetPage = typeof(AnnouncementsFormPage), IconSource = "form.png" });
                 }
             }
             else
             {
-                // Elementy menu dla niezalogowanych użytkowników
                 items.Add(new FlyoutItemPage { Title = "Register", TargetPage = typeof(RegisterPage), IconSource = "register.png" });
                 items.Add(new FlyoutItemPage { Title = "Login", TargetPage = typeof(LogInPage), IconSource = "login.png" });
             }
             App.MenuItems = items;
-            if (Application.Current.MainPage  is  FlyoutPage flyoutPage)
-            {
-                if (flyoutPage.Detail is NavigationPage navigationPage)
-                {
-                    if (navigationPage.CurrentPage is FlyoutMenuPage menuPage)
-                    {
-                        menuPage.UpdateListView();
-                    }
-                }
-            }
+            App.FlyoutMenuPage.UpdateListView();
         }
 
 

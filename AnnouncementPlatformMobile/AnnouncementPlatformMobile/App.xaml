@@ -3,6 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AnnouncementPlatformMobile.App">
     <Application.Resources>
-
+     
+            <ResourceDictionary>
+                <Style TargetType="NavigationPage">
+                    <Setter Property="BarBackgroundColor" Value="Black"></Setter>
+                <Setter Property="BarTextColor" Value="#00C853"></Setter>
+                </Style>
+            </ResourceDictionary>
+      
     </Application.Resources>
 </Application>

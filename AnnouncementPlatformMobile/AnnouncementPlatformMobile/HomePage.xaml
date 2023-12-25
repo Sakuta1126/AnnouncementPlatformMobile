@@ -3,10 +3,32 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AnnouncementPlatformMobile.HomePage" Title="HomePage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Padding="15" Spacing="10" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+            <Label Text="HomePage" TextColor="#00C853" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"></Label>
+            <!-- Kafelek 1 -->
+            <Frame CornerRadius="10" BackgroundColor="Black" Padding="10" HasShadow="True">
+                <StackLayout>
+                    <Label Text="Fast and Reliable" TextColor="#00C853" FontSize="Title" HorizontalOptions="Center"/>
+                    <Label Text="Get instant access to a vast array of announcements with our fast and reliable service." TextColor="White" HorizontalOptions="Center" />
+                </StackLayout>
+            </Frame>
+
+            <!-- Kafelek 2 -->
+            <Frame CornerRadius="10" BackgroundColor="Black" Padding="10" HasShadow="True">
+                <StackLayout>
+                    <Label Text="User-Friendly" TextColor="#00C853" FontSize="Title" HorizontalOptions="Center"/>
+                    <Label Text="Enjoy a seamless experience with our user-friendly interface, making navigation simple." TextColor="White" HorizontalOptions="Center" />
+                </StackLayout>
+            </Frame>
+
+            <!-- Kafelek 3 -->
+            <Frame CornerRadius="10" BackgroundColor="Black" Padding="10" HasShadow="True">
+                <StackLayout>
+                    <Label Text="Secure and Private" TextColor="#00C853" FontSize="Title" HorizontalOptions="Center"/>
+                    <Label Text="Your security and privacy are our top priorities. Trust us to keep your data safe." TextColor="White" HorizontalOptions="Center" />
+                </StackLayout>
+            </Frame>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

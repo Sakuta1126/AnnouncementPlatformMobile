@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AnnouncementPlatformMobile.LogOutPage">
+             x:Class="AnnouncementPlatformMobile.LogOutPage" Title="LogOut">
     <ContentPage.Content>
-        <StackLayout Orientation="Vertical">
-            <Button Text="LogOut" Clicked="Logout_Clicked" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="200" WidthRequest="300" ></Button>
+        <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Center">
+            <Button Text="LogOut" Clicked="Logout_Clicked"  HeightRequest="200" WidthRequest="300" BackgroundColor="Black" TextColor="#00C853" CornerRadius="20"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

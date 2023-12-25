@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AnnouncementPlatformMobile.UserFormPage">
+             x:Class="AnnouncementPlatformMobile.UserFormPage" Title="ProfileForm">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Padding="20" Spacing="10">
-                <Entry x:Name="PhotoPath" Placeholder="Photo Path" IsReadOnly="True" FontSize="Medium" TextColor="White" BackgroundColor="#333333" WidthRequest="300" />
+                <Entry x:Name="PhotoPath" Placeholder="Photo Path" IsReadOnly="True" FontSize="Medium" TextColor="White" BackgroundColor="#333333" WidthRequest="300" IsVisible="False" />
                 <Image x:Name="ProfileImage" HeightRequest="160" WidthRequest="160" Aspect="AspectFill">
-                    <!-- W Xamarin.Forms nie ma potrzeby definiowania klipów -->
+              
                 </Image>
                 <Button Text="Choose Photo" FontSize="Medium" BackgroundColor="Transparent" TextColor="Black" Clicked="ChooseImage_Clicked" />
 
-                <!-- Stosowanie StackLayout zamiast WrapPanel -->
+             
                 <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand">
                     <Entry x:Name="Name"  Placeholder="Name" FontSize="Medium" TextColor="White" BackgroundColor="#333333" WidthRequest="300" />
                     <Entry x:Name="Surname" Placeholder="Surname" FontSize="Medium" TextColor="White" BackgroundColor="#333333" WidthRequest="300" />

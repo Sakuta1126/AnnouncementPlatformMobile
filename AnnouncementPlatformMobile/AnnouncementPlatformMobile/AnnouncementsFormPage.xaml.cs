@@ -23,50 +23,52 @@ namespace AnnouncementPlatformMobile
         private void AddAnnouncement_Clicked(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(PositionName.Text) ||
-               PositionLevel.SelectedIndex == -1 ||  // Wybór z listy Picker
-               ContractType.SelectedIndex == -1 ||  // Wybór z listy Picker
+               PositionLevel.SelectedIndex == -1 || 
+               ContractType.SelectedIndex == -1 ||  
                string.IsNullOrWhiteSpace(Company.Text) ||
                string.IsNullOrWhiteSpace(Localization.Text) ||
-               WorkingDimension.SelectedIndex == -1 ||  // Wybór z listy Picker
-               Workingtype.SelectedIndex == -1 ||  // Wybór z listy Picker
+               WorkingDimension.SelectedIndex == -1 ||  
+               Workingtype.SelectedIndex == -1 || 
                string.IsNullOrWhiteSpace(Sallary.Text) ||
                string.IsNullOrWhiteSpace(WorkingDays.Text) ||
                string.IsNullOrWhiteSpace(WorkingHours.Text) ||
-               AnnouncementStart.Date == default(DateTime) ||  // Używamy właściwości Date
-               AnnouncementEnd.Date == default(DateTime) ||  // Używamy właściwości Date
+               AnnouncementStart.Date == default(DateTime) || 
+               AnnouncementEnd.Date == default(DateTime) ||  
                string.IsNullOrWhiteSpace(Category.Text) ||
                string.IsNullOrWhiteSpace(Duties.Text) ||
                string.IsNullOrWhiteSpace(Benefits.Text) ||
                string.IsNullOrWhiteSpace(AboutCompany.Text) ||
                string.IsNullOrWhiteSpace(Requirements.Text))
             {
-                 DisplayAlert("Błąd", "Wszystkie wymagane pola muszą być wypełnione.", "OK");
+                 DisplayAlert("Błąd", "All fields must be filled.", "OK");
                 return;
             }
             if (!Regex.IsMatch(PositionName.Text, @"^[^\d]+$") ||
                 !Regex.IsMatch(Company.Text, @"^[^\d]+$") ||
                 !Regex.IsMatch(Category.Text, @"^[^\d]+$") ||
                 !Regex.IsMatch(Duties.Text, @"^[^\d]+$") ||
-                !Regex.IsMatch(AboutCompany.Text, @"^[^\d]+$"))
+                !Regex.IsMatch(AboutCompany.Text, @"^[^\d]+$")||
+                !Regex.IsMatch(WorkingDays.Text, @"^[^\d]+$")||
+                !Regex.IsMatch(WorkingHours.Text, @"^[^\d]+$"))
             {
-                 DisplayAlert("Błąd", "Pola PositionName, Company, Category, Duties i AboutCompany nie mogą zawierać cyfr ani znaków specjalnych.", "OK");
+                 DisplayAlert("Błąd", "Fields PositionName, Company, Category,WorkingHours,WorkingDays, Duties and AboutCompany cant include special signs or numbers", "OK");
                 return;
             }
             if (!string.IsNullOrWhiteSpace(Sallary.Text) && !Regex.IsMatch(Sallary.Text, @"^\d+$"))
             {
-                 DisplayAlert("Błąd", "Pole Salary może zawierać tylko cyfry.", "OK");
+                 DisplayAlert("Błąd", "Sallary field must contain numbers only", "OK");
                 return;
             }
             if (AnnouncementEnd.Date < AnnouncementStart.Date)
             {
-                 DisplayAlert("Błąd", "Data zakończenia ogłoszenia nie może być wcześniejsza niż data rozpoczęcia.", "OK");
+                 DisplayAlert("Błąd", "End date cant be smaller than start date", "OK");
                 return;
             }
             var newAnnouncement = new Announcement
             {
                 PositionName = PositionName.Text,
-                PositionLevel = PositionLevel.Items[PositionLevel.SelectedIndex], // zamiast ComboBoxItem
-                ContractType = ContractType.Items[ContractType.SelectedIndex], // zamiast ComboBoxItem
+                PositionLevel = PositionLevel.Items[PositionLevel.SelectedIndex],
+                ContractType = ContractType.Items[ContractType.SelectedIndex], 
                 Company = Company.Text,
                 Localization = Localization.Text,
                 WorkingDimension = WorkingDimension.Items[WorkingDimension.SelectedIndex], 
@@ -82,9 +84,10 @@ namespace AnnouncementPlatformMobile
                 Benefits = Benefits.Text,
                 AboutCompany = AboutCompany.Text,
             };
+           
             App.Database.SaveItemAsync(newAnnouncement);
-            DisplayAlert("Informacja", "Dodano ogloszenie", "OK");
-            Navigation.PushAsync(new HomePage());
+            DisplayAlert("Information", "Anno Added", "OK");
+            App.FlyoutPage.RedirectToHomePage();
             App.UpdateMenuItems();
         }
     }
